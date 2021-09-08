@@ -7,10 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "RecipeEntity")
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity 
+@Table(name = "Recipe")
+@Setter @Getter @AllArgsConstructor
 public class RecipeEntity {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
