@@ -1,10 +1,16 @@
 package delicious.delicious.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,30 +23,46 @@ import lombok.Setter;
 public class RecipeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String name;
 
-    @Column(nullable = false)
-    private String image;
+    @Column(nullable = true)
+    private String image ;
 
-    @Column(nullable = false)
-    
-    private double price;
+    @Column(nullable = true)
+    private double price ;
 
-    @Column(nullable = false)
-    private String type;
+    @Column(nullable = true)
+    private String type ;
 
-    @Column(nullable = false)
-    private String steps;
+    @OneToOne
+    private Recipe_stepsEntity steps ;
 
-    @Column(nullable = false)
-    private String  imgrate;
+    // @Column(columnDefinition="TEXT")
+    @Column(columnDefinition = "TEXT", length = 4000)
+    private String imgrate;
 
-    private int click_user;
- 
+    @ManyToMany(targetEntity = UserEntity.class)
+    @JoinTable(
+    name = "user_favorites", 
+    joinColumns = @JoinColumn(name = "recipe_id"), 
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List <UserEntity>users_added_to_favorite;
+  
+    @ManyToMany(targetEntity = UserEntity.class)
+    @JoinTable(
+    name = "users_clicks", 
+    joinColumns = @JoinColumn(name = "recipe_id"), 
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List <UserEntity>user_clicks;
+
+     @OneToOne
+     private Recipe_stepsEntity users_clicked_recipe;
+
+
 
 
 
