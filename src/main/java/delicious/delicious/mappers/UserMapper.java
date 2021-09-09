@@ -5,19 +5,29 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
 import delicious.delicious.entities.UserEntity;
 import delicious.delicious.models.UserModel;
 
 
 @Mapper
+@Component
+
 public interface UserMapper 
 {//CAN I PUT ALL OF MAPPERIN ONE CLASSE?
 
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
+    public static UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
     @Mapping (source = "",target = "")
-    UserEntity UserModelToUserEntity(UserModel UserModel);
-    UserModel UserEntityToUserModel(UserEntity UserEntity);
+    static
+    UserEntity UserModelToUserEntity(UserModel UserModel) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    static UserModel UserEntityToUserModel(UserEntity UserEntity) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     List<UserEntity> UserModelToUserEntityAslist(List<UserModel> UserModel);
     List<UserModel> UserEntityToUserModelAsList(List<UserEntity> userEntities);
 

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import delicious.delicious.entities.FireBaseEntity;
 
 @Repository
-public interface FirebaseRepo extends JpaRepository<FireBaseEntity,Integer> {
-    
+public interface FirebaseRepo extends JpaRepository<FireBaseEntity, Integer> {
+
 }

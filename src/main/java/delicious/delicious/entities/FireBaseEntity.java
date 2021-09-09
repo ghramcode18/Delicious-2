@@ -13,12 +13,18 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name="firebase")
-@Setter @Getter @AllArgsConstructor @Builder
-
+@Setter
+@Getter
+@AllArgsConstructor
+@Builder
+@NoArgsConstructor
+@ToString
 public class FireBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

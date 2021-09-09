@@ -6,20 +6,30 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
 import delicious.delicious.entities.RecipeEntity;
 import delicious.delicious.models.RecipeModel;
 
 
 @Mapper
+@Component
+
 public interface RecipeMapper 
 {//CAN I PUT ALL OF MAPPERIN ONE CLASSE?
-    RecipeMapper INSTANCE = Mappers.getMapper(RecipeMapper.class);
+    public static  RecipeMapper INSTANCE = Mappers.getMapper(RecipeMapper.class);
     @Mapping (source = "",target = "")
-    RecipeEntity RecipeModelToRecipeEntity(RecipeModel RecipeModel);
+    static
+    RecipeEntity RecipeModelToRecipeEntity(RecipeModel RecipeModel) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     RecipeModel RecipeEntityToRecipeModel(RecipeEntity RecipeEntity);
     List<RecipeEntity> RecipeModelToRecipeEntityAslist(List<RecipeModel> RecipeModel);
-    List<RecipeModel> RecipeEntityToRecipeModelAsList(List<RecipeEntity> RecipeEntities);
+    static List<RecipeModel> RecipeEntityToRecipeModelAsList(List<RecipeEntity> RecipeEntities) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
  }
  

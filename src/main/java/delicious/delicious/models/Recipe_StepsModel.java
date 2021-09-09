@@ -6,9 +6,17 @@ import delicious.delicious.entities.RecipeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
-@Setter @Getter @AllArgsConstructor  @Builder
+import lombok.ToString;
+@Setter
+@Getter
+@AllArgsConstructor
+@Builder
+// @NoArgsConstructor
+@ToString
+@RequiredArgsConstructor
 
 public class Recipe_StepsModel {
  
@@ -17,5 +25,5 @@ public class Recipe_StepsModel {
     private String descripion;
     private RecipeEntity recipeEntity;
 
-    
+
 }

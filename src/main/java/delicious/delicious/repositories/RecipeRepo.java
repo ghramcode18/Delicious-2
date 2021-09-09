@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import delicious.delicious.entities.RecipeEntity;
 
 @Repository
-public interface RecipeRepo   extends JpaRepository<RecipeEntity,Integer>{
-    List <RecipeEntity>findByType (String type);
+public interface RecipeRepo extends JpaRepository<RecipeEntity, Integer> {
+    List<RecipeEntity> findByType(String type);
 
 }

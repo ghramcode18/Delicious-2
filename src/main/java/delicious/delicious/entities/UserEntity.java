@@ -14,10 +14,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 @Entity
 @Table(name = "User")
-@Setter @Getter @AllArgsConstructor @Builder @Data
+@Setter
+@Getter
+@AllArgsConstructor
+@Builder
+@NoArgsConstructor
+@ToString
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
