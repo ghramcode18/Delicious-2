@@ -13,6 +13,7 @@ import delicious.delicious.models.UserModel;
 @Mapper
 public interface UserMapper 
 {//CAN I PUT ALL OF MAPPERIN ONE CLASSE?
+
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
     @Mapping (source = "",target = "")
     UserEntity UserModelToUserEntity(UserModel UserModel);
