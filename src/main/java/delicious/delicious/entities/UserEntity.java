@@ -11,11 +11,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 @Entity
 @Table(name = "User")
-@Setter @Getter @AllArgsConstructor
+@Setter @Getter @AllArgsConstructor @Builder @Data
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

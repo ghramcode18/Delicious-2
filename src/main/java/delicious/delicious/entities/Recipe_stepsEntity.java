@@ -10,13 +10,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 
 @Entity
 @Table(name = "recipe_steps")
-@Setter @Getter @AllArgsConstructor
+@Setter @Getter @AllArgsConstructor @Builder
 
 public class Recipe_stepsEntity {
     @Id

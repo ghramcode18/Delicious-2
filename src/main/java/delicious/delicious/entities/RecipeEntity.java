@@ -14,12 +14,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity 
 @Table(name = "Recipe")
-@Setter @Getter @AllArgsConstructor
+@Setter @Getter @AllArgsConstructor @Builder
 public class RecipeEntity {
 
     @Id
