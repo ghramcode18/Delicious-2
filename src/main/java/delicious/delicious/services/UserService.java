@@ -22,13 +22,17 @@ public class UserService {
     UserRepo userRepo;
     @Autowired
     RecipeRepo recipeRepo;
+    @Autowired
+    UserMapper userMapper;
+
    
-    @Bean
+    // TODO please check my @Bean 
+    
     public UserModel registerUser(UserModel user) throws UserException {
         if (user.getEmail() != null && user.getPassword() != null && user.getUserName() != null) {
             if (userRepo.findByEmail(user.getEmail()).isEmpty()) {
-                UserEntity entity = userRepo.save(UserMapper.UserModelToUserEntity(user));
-                return user.builder().id(entity.getId()).build();
+                UserEntity entity = userRepo.save(userMapper.UserModelToUserEntity(user));
+                return user.builder().userId(entity.getId()).build();
             } else {
                 throw new UserException("this email is already exist");
             }
@@ -38,30 +42,30 @@ public class UserService {
         }
     }
 
-    public UserModel signIn(UserModel user) throws UserException {
-        Optional<UserEntity> entity;
-        if ((entity = userRepo.findByEmail(user.getEmail())).isEmpty()) {
-            throw new UserException("no user with this email");
-        } else {
-            if (entity.get().getPassword().equals(user.getPassword())) {
-                return UserMapper.UserEntityToUserModel(entity.get());
-            } else {
-                throw new UserException("wrong password");
-            }
+    // public UserModel signIn(UserModel user) throws UserException {
+    //     Optional<UserEntity> entity;
+    //     if ((entity = userRepo.findByEmail(user.getEmail())).isEmpty()) {
+    //         throw new UserException("no user with this email");
+    //     } else {
+    //         if (entity.get().getPassword().equals(user.getPassword())) {
+    //             return UserMapper.mapper.UserEntityToUserModel(entity.get());
+    //         } else {
+    //             throw new UserException("wrong password");
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
-    public UserModel addFavorite(Integer id, RecipeModel rModel) {
-        if (id == null)
-            throw new UserException("can't  user  or recipe with this id");
+    // public UserModel addFavorite(Integer id, RecipeModel rModel) {
+    //     if (id == null)
+    //         throw new UserException("can't  user  or recipe with this id");
 
-        UserEntity entity = userRepo.findById(id).orElseThrow(() -> new UserException("no user with this id"));
-        entity.getFavorites().add(RecipeMapper.RecipeModelToRecipeEntity(rModel));
-        userRepo.save(entity);
-        return UserMapper.UserEntityToUserModel(entity);
+    //     UserEntity entity = userRepo.findById(id).orElseThrow(() -> new UserException("no user with this id"));
+    //     entity.getFavorites().add(RecipeMapper.RecipeModelToRecipeEntity(rModel));
+    //     userRepo.save(entity);
+    //     return UserMapper.mapper.UserEntityToUserModel(entity);
 
-    }
+    // }
 
     public List<RecipeModel> getFavorite(Integer id) {
         if (id == null)

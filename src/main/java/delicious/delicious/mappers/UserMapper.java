@@ -18,16 +18,11 @@ public interface UserMapper
 {//CAN I PUT ALL OF MAPPERIN ONE CLASSE?
 
     public static UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
-    @Mapping (source = "",target = "")
-    static
-    UserEntity UserModelToUserEntity(UserModel UserModel) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-    static UserModel UserEntityToUserModel(UserEntity UserEntity) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // public static PostMapper mapper = Mappers.getMapper(PostMapper.class);
+
+    @Mapping (source = "id",target = "userId")
+   UserEntity UserModelToUserEntity(UserModel UserModel) ;
+    public UserModel UserEntityToUserModel(UserEntity UserEntity) ;
     List<UserEntity> UserModelToUserEntityAslist(List<UserModel> UserModel);
     List<UserModel> UserEntityToUserModelAsList(List<UserEntity> userEntities);
 

@@ -35,15 +35,15 @@ public class UserController {
          }
      }
      
-    @RequestMapping(value="/signIn", method=RequestMethod.POST)
-    public Object signIn(@RequestBody UserModel user) {
-        try{
-            return userService.signIn(user);
-        }catch(UserException e)
-        {
-            return e.getMessage();
-        }                                                                                                                                                                       
-    }
+    // @RequestMapping(value="/signIn", method=RequestMethod.POST)
+    // public Object signIn(@RequestBody UserModel user) {
+    //     try{
+    //         return userService.signIn(user);
+    //     }catch(UserException e)
+    //     {
+    //         return e.getMessage();
+    //     }                                                                                                                                                                       
+    // }
     
    
     
@@ -53,11 +53,11 @@ public class UserController {
     return  userService.getFavorite(id);
    }
  
-   @RequestMapping(value ="/addFavorite/{num}",method = RequestMethod.POST)
-   public UserModel addFavorite(@PathVariable (name = "num")Integer id,RecipeModel rModel)
-   {
-    return userService.addFavorite(id, rModel);
-   }
+//    @RequestMapping(value ="/addFavorite/{num}",method = RequestMethod.POST)
+//    public UserModel addFavorite(@PathVariable (name = "num")Integer id,RecipeModel rModel)
+//    {
+//     return userService.addFavorite(id, rModel);
+//    }
  
 
  }
