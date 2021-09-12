@@ -25,22 +25,55 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-   
-    // TODO please check my @Bean 
-    
-    public UserModel registerUser(UserModel user) throws UserException {
-        if (user.getEmail() != null && user.getPassword() != null && user.getUserName() != null) {
-            if (userRepo.findByEmail(user.getEmail()).isEmpty()) {
-                UserEntity entity = userRepo.save(userMapper.UserModelToUserEntity(user));
+
+    public UserModel registerUser(UserModel user) throws UserException 
+    {
+        if(user.getEmail() != null && user.getPassword() != null && user.getUserName()!= null)
+        {
+            if(userRepo.findByEmail(user.getEmail()).isEmpty())
+            {
+                UserEntity entity = userRepo.save(UserModelToUserEntity(user));
                 return user.builder().userId(entity.getId()).build();
-            } else {
+            }else{
                 throw new UserException("this email is already exist");
             }
-        } else {
+        }else{
             throw new UserException("required fields are null");
 
         }
     }
+
+
+    public  UserEntity  UserModelToUserEntity(UserModel user)
+    {
+        UserEntity entity = new UserEntity().builder()
+        .email(user.getEmail())
+        .userName(user.getUserName())
+        .id(user.getUserId())
+        .password(user.getPassword()).build();
+
+        return entity;
+
+
+    }
+
+
+   
+    // TODO please check my @Bean 
+    
+    // public UserModel registerUser(UserModel user) throws UserException {
+    //     if (user.getEmail() != null && user.getPassword() != null && user.getUserName() != null) {
+    //         if (userRepo.findByEmail(user.getEmail()).isEmpty()) {
+    //             UserEntity entity = userRepo.save(userMapper.UserModelToUserEntity(user));
+    //             return user.builder().userId(entity.getId()).build();
+    //         } else {
+    //             throw new UserException("this email is already exist");
+    //         }
+    //     } else {
+    //         throw new UserException("required fields are null");
+
+    //     }
+    // }
 
     // public UserModel signIn(UserModel user) throws UserException {
     //     Optional<UserEntity> entity;
