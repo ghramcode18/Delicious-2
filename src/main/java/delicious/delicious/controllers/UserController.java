@@ -1,3 +1,4 @@
+
 package delicious.delicious.controllers;
 
 
@@ -18,7 +19,7 @@ import delicious.delicious.models.UserModel;
 import delicious.delicious.services.UserService;
 
 @RestController
-@RequestMapping(path = {"/api/v1/auth","/api/v1"})
+@RequestMapping(path = {"/api/v1/auth","/api/v1","/"})
 public class UserController {
     @Autowired
     UserService userService;
@@ -34,6 +35,7 @@ public class UserController {
              return e.getMessage();
          }
      }
+   
      
     // @RequestMapping(value="/signIn", method=RequestMethod.POST)
     // public Object signIn(@RequestBody UserModel user) {
