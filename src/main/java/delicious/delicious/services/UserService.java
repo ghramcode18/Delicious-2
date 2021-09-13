@@ -25,7 +25,7 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-
+    @Bean 
     public UserModel registerUser(UserModel user) throws UserException 
     {
         if(user.getEmail() != null && user.getPassword() != null && user.getUserName()!= null)
@@ -100,13 +100,13 @@ public class UserService {
 
     // }
 
-    public List<RecipeModel> getFavorite(Integer id) {
-        if (id == null)
-            throw new UserException("can't  user with this id");
-        UserEntity entity = userRepo.findById(id).orElseThrow(() -> new UserException("no user with this id"));
-        return RecipeMapper.RecipeEntityToRecipeModelAsList(entity.getFavorites());
+    // public List<RecipeModel> getFavorite(Integer id) {
+    //     if (id == null)
+    //         throw new UserException("can't  user with this id");
+    //     UserEntity entity = userRepo.findById(id).orElseThrow(() -> new UserException("no user with this id"));
+    //     return RecipeMapper.RecipeEntityToRecipeModelAsList(entity.getFavorites());
 
-    }
+    // }
 
    
 

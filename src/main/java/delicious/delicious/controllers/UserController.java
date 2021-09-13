@@ -19,7 +19,7 @@ import delicious.delicious.models.UserModel;
 import delicious.delicious.services.UserService;
 
 @RestController
-@RequestMapping(path = {"/api/v1/auth","/api/v1","/"})
+@RequestMapping(path = {"/api/v1/auth","/api/v1","/main"})
 public class UserController {
     @Autowired
     UserService userService;
@@ -35,7 +35,7 @@ public class UserController {
              return e.getMessage();
          }
      }
-   
+  
      
     // @RequestMapping(value="/signIn", method=RequestMethod.POST)
     // public Object signIn(@RequestBody UserModel user) {
@@ -49,11 +49,11 @@ public class UserController {
     
    
     
-   @RequestMapping(value ="/getFavorites/{num}",method = RequestMethod.GET)
-   public List<RecipeModel> getFavorite(@PathVariable (name = "num")Integer id)
-   {
-    return  userService.getFavorite(id);
-   }
+//    @RequestMapping(value ="/getFavorites/{num}",method = RequestMethod.GET)
+//    public List<RecipeModel> getFavorite(@PathVariable (name = "num")Integer id)
+//    {
+//     return  userService.getFavorite(id);
+//    }
  
 //    @RequestMapping(value ="/addFavorite/{num}",method = RequestMethod.POST)
 //    public UserModel addFavorite(@PathVariable (name = "num")Integer id,RecipeModel rModel)
