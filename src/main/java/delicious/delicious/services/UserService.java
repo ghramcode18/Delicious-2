@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import delicious.delicious.entities.UserEntity;
 import delicious.delicious.exceptions.UserException;
 import delicious.delicious.mappers.RecipeMapper;
-import delicious.delicious.mappers.UserMapper;
+// import delicious.delicious.mappers.UserMapper;
 import delicious.delicious.models.RecipeModel;
 import delicious.delicious.models.UserModel;
 import delicious.delicious.repositories.RecipeRepo;
@@ -22,8 +22,8 @@ public class UserService {
     UserRepo userRepo;
     @Autowired
     RecipeRepo recipeRepo;
-    @Autowired
-    UserMapper userMapper;
+    // @Autowired
+    // UserMapper userMapper;
 
     @Bean 
     public UserModel registerUser(UserModel user) throws UserException 
