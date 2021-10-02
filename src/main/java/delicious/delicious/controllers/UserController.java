@@ -24,8 +24,6 @@ public class UserController {
     @Autowired
     UserService userService;
     
-    // @Autowired
-    // RecipeService recipeService;
      @RequestMapping(value="/register", method=RequestMethod.POST)
      public Object registerUser(@RequestBody UserModel user) {
          try{
