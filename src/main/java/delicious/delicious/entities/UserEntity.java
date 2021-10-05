@@ -25,9 +25,12 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @ToString
+@Data
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = true)
+
     private Integer id;
 
     @Column(nullable = true)

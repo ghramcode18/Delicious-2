@@ -35,15 +35,15 @@ public class UserController {
      }
   
      
-    // @RequestMapping(value="/signIn", method=RequestMethod.POST)
-    // public Object signIn(@RequestBody UserModel user) {
-    //     try{
-    //         return userService.signIn(user);
-    //     }catch(UserException e)
-    //     {
-    //         return e.getMessage();
-    //     }                                                                                                                                                                       
-    // }
+    @RequestMapping(value="/signIn", method=RequestMethod.GET)
+    public Object signIn(@RequestBody UserModel user) {
+        try{
+            return userService.signIn(user);
+        }catch(UserException e)
+        {
+            return e.getMessage();
+        }                                                                                                                                                                       
+    }
     
    
     
