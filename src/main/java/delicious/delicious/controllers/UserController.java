@@ -51,13 +51,13 @@ public class UserController {
 //    public List<RecipeModel> getFavorite(@PathVariable (name = "num")Integer id)
 //    {
 //     return  userService.getFavorite(id);
-//    }
+  // }
  
-//    @RequestMapping(value ="/addFavorite/{num}",method = RequestMethod.POST)
-//    public UserModel addFavorite(@PathVariable (name = "num")Integer id,RecipeModel rModel)
-//    {
-//     return userService.addFavorite(id, rModel);
-//    }
+   @RequestMapping(value ="/addFavorite/{num}",method = RequestMethod.POST)
+   public UserModel addFavorite(@PathVariable (name = "num")Integer id,RecipeModel rModel)
+   {
+    return userService.addFavorite(id, rModel);
+   }
  
 
  }

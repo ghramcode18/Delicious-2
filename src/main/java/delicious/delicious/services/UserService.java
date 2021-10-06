@@ -71,7 +71,7 @@ public class UserService {
             throw new UserException("can't user or recipe with this id");
 
         UserEntity entity = userRepo.findById(id).orElseThrow(() -> new UserException("no user with this id"));
-        
+      //  entity.builder().favorites(entity.getFavorites().add(RecipeModelToRecipeEntity(rModel))).build();
         entity.getFavorites().add(RecipeModelToRecipeEntity(rModel));
         userRepo.save(entity);
         return UserEntityToUserModel(entity);
