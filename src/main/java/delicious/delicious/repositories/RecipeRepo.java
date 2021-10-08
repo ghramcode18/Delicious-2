@@ -10,5 +10,6 @@ import delicious.delicious.entities.RecipeEntity;
 @Repository
 public interface RecipeRepo extends JpaRepository<RecipeEntity, Integer> {
     List<RecipeEntity> findByType(String type);
+    RecipeEntity findByRecipeName(String userName );
 
 }

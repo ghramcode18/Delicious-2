@@ -11,6 +11,8 @@ import delicious.delicious.entities.UserEntity;
 @Repository
 public interface UserRepo extends JpaRepository<UserEntity,Integer> {
     Optional<UserEntity> findByEmail(String email);
+    Optional<UserEntity> findById(String email);
+
     // @Query(value = "select u.name as name,c.college_name as college_name from users u inner join college c ON u.college_id = c.id GROUP BY name", nativeQuery = true)
     // List<List<String>> usersWithCollege();
     // @Query(value = "SELECT * FROM `user_favorites` ",nativeQuery = true)

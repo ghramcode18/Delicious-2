@@ -1,6 +1,9 @@
 package delicious.delicious.models;
 
+import java.util.List;
+
 import delicious.delicious.entities.RecipeEntity;
+import delicious.delicious.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,5 +26,7 @@ public class RecipeModel {
  private String image;
  private Recipe_StepsModel Recipe_steps;
  private String  imgrate;
+ private List<UserEntity> users_added_to_favorite;
+
     
 }

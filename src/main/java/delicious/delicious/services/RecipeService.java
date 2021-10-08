@@ -38,7 +38,7 @@ public class RecipeService {
        RecipeModel rModel = new RecipeModel();
        rModel.builder()
        .id(recipeEntity.getId())
-       .name(recipeEntity.getName())
+       .name(recipeEntity.getRecipeName())
        .imgrate(recipeEntity.getImgrate())
        .price(recipeEntity.getPrice())
        .type(recipeEntity.getType()).build();
